@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
 exports.findUser = async (req, res) => {
     try {
         const user = req.params.username;
-        const targetUser = User.findOne({username: user });
+        const targetUser = await User.findOne({username: user });
         res.status(200).send({ user: targetUser, message: "User found" })
     } catch (error) {
         res.status(500).send(error);
